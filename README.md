@@ -1,54 +1,38 @@
-# React + TypeScript + Vite
+# AI-Aided Consultant Platform — Front-End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + TypeScript single-page application for submitting and reviewing consultation cases, fully localized (English/عربى) and featuring professional responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features Implemented
 
-## Expanding the ESLint configuration
+- **Project Setup**
+  - Scaffolded with Vite + React + TypeScript  
+  - ESLint, Prettier, and CSS Modules support  
+- **Routing & Layout**
+  - `react-router-dom` v6 with `AppRoutes` for `/`, `/login`, `/register`  
+  - `GuestLayout` with a sticky `<Navbar>` and an `<Outlet>` for pages  
+- **Dependency-Injected HTTP**
+  - `HttpClient` interface + `AxiosClient` implementation  
+  - `HttpClientContext` to inject the client into components  
+- **Case Submission Form**
+  - Built with **React Hook Form** for validation & submission state  
+  - Fields: Email, Case Specialty, Description  
+  - **CSS Module** styling: card layout, focus states, error messages  
+  - **Toast** notifications (react-toastify) on success/failure  
+- **Internationalization (i18n)**
+  - `react-i18next` integration  
+  - Locale JSON files in `src/locales/en.json` & `src/locales/ar.json`  
+  - LanguageSwitcher component (EN ↔ AR)  
+  - Dynamic `<html lang>` and `dir` attribute updates  
+- **Specialties Dropdown**
+  - `SPECIALTY_KEYS` as a type-safe list of keys (`legal`, `medical`, …)  
+  - Translated labels via `t('specialties.legal')`, etc.  
+- **Professional Navbar**
+  - Semantic `<header>` + `<nav>` markup  
+  - CSS Variables for theme colors & spacing  
+  - Sticky, shadowed header  
+  - Responsive mobile “hamburger” menu with ARIA attributes  
+  - Active-link indicator and hover/focus styles  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---

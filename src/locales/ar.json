@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "لديك حالة تريد الاستفسار عنها؟",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "specialtySelect": "اختر التخصص",
+    "descriptionPlaceholder": "صف قضيتك",
+    "submit": "إرسال",
+    "submitting": "جاري الإرسال…",
+    "emailRequired":"البريد الإلكتروني مطلوب",
+    "specialtyRequired":"الرجاء اختيار التخصص",
+    "descriptionRequired":"الوصف مطلوب",
+    "success":"تم إرسال الحالة بنجاح!",
+    "error":"فشل الإرسال. الرجاء المحاولة مرة أخرى."
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل"
+  },
+  "specialties": {
+    "Legal":     "قانوني",
+    "Medical":   "طبي",
+    "Technical": "تقني",
+    "Financial": "مالي"
+  }
+}

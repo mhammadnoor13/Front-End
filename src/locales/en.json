@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "Submit a New Case",
+    "emailPlaceholder": "Email",
+    "specialtySelect": "Select specialty",
+    "descriptionPlaceholder": "Describe your case",
+    "submit": "Submit Case",
+    "submitting": "Submitting…",
+    "emailRequired":"Email is required",
+    "specialtyRequired":"Please select a specialty",
+    "descriptionRequired":"Description is required",
+    "success":"Case submitted!",
+    "error":"Submission failed."
+  },
+  "nav": {
+    "home": "Home",
+    "login": "Login",
+    "register": "Register"
+  },
+  "specialties": {
+    "Legal":     "Legal",
+    "Medical":   "Medical",
+    "Technical": "Technical",
+    "Financial": "Financial"
+  }
+}

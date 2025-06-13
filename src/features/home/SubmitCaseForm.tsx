@@ -1,50 +1,99 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useHttpClient } from '../../contexts/HttpClientContext';
 import { makeCaseService, type CaseInput } from '../../api/cases';
-import { SPECIALTIES } from '../../utils/specialties';
+import { SPECIALTY_KEYS, type SpecialtyKey } from '../../utils/specialties';
+import styles from './SubmitCaseForm.module.css';
 
 export default function SubmitCaseForm() {
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<CaseInput>();
+  const { t } = useTranslation();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<CaseInput>();
+
   const client = useHttpClient();
   const { submitCase } = makeCaseService(client);
 
   const onSubmit = async (data: CaseInput) => {
-    console.log('Submitting case payload:', JSON.stringify(data, null, 2));
-
     try {
       await submitCase(data);
-      toast.success('Case submitted!');
+      toast.success(t('home.success'));
       reset();
     } catch {
-      toast.error('Submission failed.');
+      toast.error(t('home.error'));
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ maxWidth: 400, margin: '0 auto' }}>
-      <input
-        {...register('email', { required: true })}
-        type="email" placeholder="Email" style={{ width: '100%', marginBottom: 8 }}
-      />
-      {errors.email && <p>Email is required</p>}
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={styles.container}
+      noValidate
+    >
+      {/* Email */}
+      <div className={styles.group}>
+        <label htmlFor="email" className={styles.label}>
+          {t('home.emailPlaceholder')}
+        </label>
+        <input
+          id="email"
+          type="email"
+          aria-invalid={!!errors.email}
+          {...register('email', { required: true })}
+          className={styles.input}
+        />
+        {errors.email && <span className={styles.error}>{t('home.emailRequired')}</span>}
+      </div>
 
-      <select {...register('speciality', { required: true })} style={{ width: '100%', marginBottom: 8 }}>
-        <option value="">Select specialty</option>
-        {SPECIALTIES.map(s => <option key={s}>{s}</option>)}
-      </select>
-      {errors.speciality && <p>Specialty is required</p>}
+      {/* Specialty */}
+      <div className={styles.group}>
+        <label htmlFor="speciality" className={styles.label}>
+          {t('home.specialtySelect')}
+        </label>
+        <select
+          id="speciality"
+          aria-invalid={!!errors.speciality}
+          {...register('speciality', { required: true })}
+          className={styles.select}
+        >
+          <option value="">{t('home.specialtySelect')}</option>
+          {SPECIALTY_KEYS.map((key: SpecialtyKey) => (
+            <option key={key} value={key}>
+              {t(`specialties.${key}`)}
+            </option>
+          ))}
+        </select>
+        {errors.speciality && <span className={styles.error}>{t('home.specialtyRequired')}</span>}
+      </div>
 
-      <textarea
-        {...register('description', { required: true })}
-        placeholder="Describe your case"
-        style={{ width: '100%', height: 100, marginBottom: 8 }}
-      />
-      {errors.description && <p>Description is required</p>}
+      {/* Description */}
+      <div className={styles.group}>
+        <label htmlFor="description" className={styles.label}>
+          {t('home.descriptionPlaceholder')}
+        </label>
+        <textarea
+          id="description"
+          aria-invalid={!!errors.description}
+          {...register('description', { required: true })}
+          className={styles.textarea}
+        />
+        {errors.description && (
+          <span className={styles.error}>{t('home.descriptionRequired')}</span>
+        )}
+      </div>
 
-      <button type="submit" disabled={isSubmitting} style={{ padding: '0.5rem 1rem' }}>
-        {isSubmitting ? 'Submitting…' : 'Submit Case'}
+      {/* Submit */}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={styles.button}
+      >
+        {isSubmitting ? t('home.submitting') : t('home.submit')}
       </button>
     </form>
   );

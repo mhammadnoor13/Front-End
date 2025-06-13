@@ -1,8 +1,9 @@
+import { SpecialtyKey } from '../utils/specialties';
 import type { HttpClient } from './httpClient';
 
 export interface CaseInput {
   email: string;
-  speciality: string;
+  speciality: SpecialtyKey;
   description: string;
 }
 
