@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import GuestLayout from '../layouts/GuestLayout';
 import HomePage from '../features/home/HomePage';

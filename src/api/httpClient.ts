@@ -8,7 +8,7 @@ export class AxiosClient implements HttpClient {
   private instance: AxiosInstance;
   constructor() {
     this.instance = axios.create({
-      baseURL: import.meta.env.VITE_API_URL || 'https://localhost:7011',
+      baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5100',
     });
   }
   async post<T>(url: string, data: unknown) {
