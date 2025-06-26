@@ -19,7 +19,14 @@ export default function App() {
       <AppRoutes />
 
       {/* Global container for any toast notifications */}
-      <ToastContainer position="top-right" />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+      />
     </>
   );
 }

@@ -22,5 +22,28 @@
     "Medical":   "Medical",
     "Technical": "Technical",
     "Financial": "Financial"
+  },
+  "register":{
+    "title": "Create and Account",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "speciality": "Speciality",
+    "selectSpeciality": "Select Speciality",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Sign Up",
+    "success":"Account created!",
+    "errors": {
+      "required":"This field is required.",
+      "emailInvalid":"Please enter a valid email address.",
+      "passwordWeak":"Password must be at least 8 characters and include a number.",
+      "passwordMatch":"Passwords do not match.",
+      "USER_EXISTS":"An account with that email already exists.",
+      "INVALID_SPECIALTY":"Please choose a valid specialty.",
+      "INVALID_REQUEST":"There was a problem with your submission.",
+      "NETWORK_ERROR":"Unable to reach server. Check your connection.",
+      "SERVER_ERROR":"Something went wrong. Please try again later."
+    }
   }
 }
