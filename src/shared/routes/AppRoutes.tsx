@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import GuestLayout from '../layouts/GuestLayout';
-import HomePage from '../features/home/HomePage';
-import RegisterPage from '../features/auth/RegisterPage';
+import RegisterPage from '../../features/auth/RegisterPage';
+import HomePage from '../../features/cases/pages/CasesPage';
 // import LoginPage from '../features/home/LoginPage';       // stub for future
 // import RegisterPage from '../features/home/RegisterPage'; // stub for future
 

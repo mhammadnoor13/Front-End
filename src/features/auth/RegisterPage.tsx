@@ -1,8 +1,8 @@
 // src/features/auth/RegisterPage.tsx
 import { FormEvent, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useRegister } from '../../hooks/useRegister'
-import { SPECIALTY_KEYS, SpecialtyKey } from '../../utils/specialties'
+import { useRegister } from './hooks/useRegister'
+import { SPECIALTY_KEYS, SpecialtyKey } from '../../shared/utils/specialties'
 import styles from './RegisterPage.module.css'
 
 interface FormState {

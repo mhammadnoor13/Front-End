@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import { useHttpClient } from '../../contexts/HttpClientContext';
-import { makeCaseService, type CaseInput } from '../../api/cases';
-import { SPECIALTY_KEYS, type SpecialtyKey } from '../../utils/specialties';
 import styles from './SubmitCaseForm.module.css';
+import { useHttpClient } from '../../../shared/contexts/HttpClientContext';
+import { CaseInput, makeCaseService } from '../services';
+import { SPECIALTY_KEYS, SpecialtyKey } from '../../../shared/utils/specialties';
 
 export default function SubmitCaseForm() {
   const { t } = useTranslation();

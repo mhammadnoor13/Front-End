@@ -1,5 +1,5 @@
-import { SpecialtyKey } from '../utils/specialties';
-import type { HttpClient } from './httpClient';
+import { HttpClient } from "../../shared/contexts/httpClient";
+import { SpecialtyKey } from "../../shared/utils/specialties";
 
 export interface CaseInput {
   email: string;

@@ -1,8 +1,8 @@
 // src/hooks/useRegister.ts
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { registerUser, RegisterPayload } from '../services/authService'
 import { useTranslation } from 'react-i18next'
+import { RegisterPayload, registerUser } from '../services'
 
 export function useRegister() {
   const { t } = useTranslation()

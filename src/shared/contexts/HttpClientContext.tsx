@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { type HttpClient, AxiosClient } from '../api/httpClient';
+import { type HttpClient, AxiosClient } from './httpClient';
 
 const Context = createContext<HttpClient | null>(null);
 

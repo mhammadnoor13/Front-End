@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
-import AppRoutes from './routes/AppRoutes';
+import AppRoutes from './shared/routes/AppRoutes';
 
 export default function App() {
   const { i18n } = useTranslation();

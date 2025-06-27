@@ -1,8 +1,8 @@
-import './i18n';
+import './shared/i18n';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { HttpClientProvider } from './contexts/HttpClientContext';
+import { HttpClientProvider } from './shared/contexts/HttpClientContext';
 import App from './App';
 import 'react-toastify/dist/ReactToastify.css';
 
