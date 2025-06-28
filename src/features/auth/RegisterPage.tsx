@@ -4,20 +4,14 @@ import { useTranslation } from 'react-i18next'
 import { useRegister } from './hooks/useRegister'
 import { SPECIALTY_KEYS, SpecialtyKey } from '../../shared/utils/specialties'
 import styles from './RegisterPage.module.css'
+import { FormState, RegisterPayload } from './types'
 
-interface FormState {
-  firstName: string
-  lastName: string
-  speciality: SpecialtyKey | ''
-  email: string
-  password: string
-  confirmPassword: string
-}
+
 type FormErrors = Partial<Record<keyof FormState, string>>
 
 export default function RegisterPage() {
   const { t } = useTranslation()
-  const { submit, loading } = useRegister()
+  const { doRegister, loading } = useRegister()
 
   const [form, setForm] = useState<FormState>({
     firstName: '',
@@ -61,9 +55,10 @@ export default function RegisterPage() {
     e.preventDefault()
     if (!validate()) return
 
+    const {confirmPassword, ...payload} = form
+
     try {
-      await submit(form)
-      // TODO: navigate to login/dashboard
+      await doRegister(payload as RegisterPayload)
     } catch {
       // error shown by toast
     }
@@ -200,7 +195,7 @@ export default function RegisterPage() {
           className={styles.submitButton}
           disabled={loading}
         >
-          {loading ? t('home.submitting') : t('register.submit')}
+          {loading ? t('register.submitting') : t('register.submit')}
         </button>
       </form>
     </div>

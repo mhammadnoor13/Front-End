@@ -2,25 +2,32 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'react-i18next'
-import { RegisterPayload, registerUser } from '../services'
+import { useAuth } from '../../../shared/contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
+import { RegisterPayload } from '../types'
+import { AppRoutes } from '../../../shared/routes/routes'
 
 export function useRegister() {
-  const { t } = useTranslation()
-  const [loading, setLoading] = useState(false)
+  const {register} = useAuth();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
 
-  async function submit(data: RegisterPayload) {
-    setLoading(true)
+
+  async function doRegister(data: RegisterPayload) {
+    setLoading(true);
     try {
-      const result = await registerUser(data)
+      await register(data);
+      navigate(AppRoutes.reviewCases);
       toast.success(t('register.success'))
-      return result
-    } catch (err: any) {
+    } 
+    catch (err: any) {
       // map error.code (in err.message) to i18n path
       const code = err.message
       const key = `register.errors.${code}` as const
       // fallback
       const msg =
-        t(key, { defaultValue: t('register.errors.SERVER_ERROR') })
+        t(key, { defaultValue: t('register.errors.UNKNOWN') })
       toast.error(msg)
       throw err
     } finally {
@@ -28,5 +35,5 @@ export function useRegister() {
     }
   }
 
-  return { submit, loading }
+  return { doRegister, loading }
 }

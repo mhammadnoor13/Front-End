@@ -33,6 +33,7 @@
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "submit": "Sign Up",
+    "submitting": "Registering...",
     "success":"Account created!",
     "errors": {
       "required":"This field is required.",
@@ -43,7 +44,13 @@
       "INVALID_SPECIALTY":"Please choose a valid specialty.",
       "INVALID_REQUEST":"There was a problem with your submission.",
       "NETWORK_ERROR":"Unable to reach server. Check your connection.",
-      "SERVER_ERROR":"Something went wrong. Please try again later."
+      "SERVER_ERROR":"Something went wrong. Please try again later.",
+      "EMAIL_IN_USE": "That email is already registered.",
+      "UNKNOWN": "Something went wrong."
+
+    },
+    "reviewCases": {
+      "registered": "Registered"
     }
   }
 }
