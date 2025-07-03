@@ -2,5 +2,5 @@ export const AppRoutes = {
   home:          '/',
   register:      '/register',
   login:         '/login',
-  reviewCases:   '/review-cases',
+  REVIEW_CASES:   '/review-cases',
 };

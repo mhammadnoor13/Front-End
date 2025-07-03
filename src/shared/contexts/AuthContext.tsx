@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useHttpClient } from "./HttpClientContext";
-import { RegisterPayload } from "../../features/auth/types";
-import { registerUser } from "../../features/auth/services";
+import { LoginRequest, RegisterPayload } from "../../features/auth/types";
+import { loginUser, registerUser } from "../../features/auth/services";
 
 interface AuthTokens {
   accessToken: string;
@@ -11,6 +11,7 @@ interface AuthTokens {
 interface AuthContextValue {
   isAuthenticated: boolean;
   register: (data: RegisterPayload) => Promise<void>;
+  login: (payload: LoginRequest) => Promise<void>;
   logout: () => void;
   tokens: AuthTokens | null;
 }
@@ -19,16 +20,14 @@ const AuthContext = createContext<AuthContextValue | null>(null);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const http = useHttpClient();
-  const [tokens, setTokens] = useState<AuthTokens | null>(null);
+  const [tokens, setTokens] = useState<AuthTokens | null>(() => {
+  const saved = localStorage.getItem('authTokens');
+   return saved ? JSON.parse(saved) as AuthTokens : null;
+ });  
+ 
+ 
   const isAuthenticated = tokens !== null;
 
-  // On app start, rehydrate tokens from localStorage
-  useEffect(() => {
-    const saved = localStorage.getItem('authTokens');
-    if (saved) {
-      setTokens(JSON.parse(saved));
-    }
-  }, []);
 
   // Save or clear tokens in localStorage whenever they change
   useEffect(() => {
@@ -39,11 +38,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [tokens]);
 
+
+  useEffect(() => {
+    http.setAuthToken(tokens?.accessToken ?? null);
+  }, [http, tokens]);
+
   // Call the API and store tokens on success
   const register = async (data: RegisterPayload) => {
     const tokens = await registerUser(http, data);
     setTokens(tokens);
     
+  };
+
+  const login = async (data: LoginRequest) => {
+    const tokens = await loginUser(http,data);
+    setTokens(tokens);
   };
 
   // Clear everything
@@ -52,7 +61,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, register, logout, tokens }}>
+    <AuthContext.Provider value={{ isAuthenticated, register, login,logout, tokens }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import styles from './HomePage.module.css';
-import SubmitCaseForm from '../components/SubmitCaseForm';
+import SubmitCaseForm from './components/SubmitCaseForm';
 
 export default function HomePage() {
   const { t } = useTranslation();

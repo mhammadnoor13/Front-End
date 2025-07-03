@@ -48,9 +48,14 @@
       "EMAIL_IN_USE": "That email is already registered.",
       "UNKNOWN": "Something went wrong."
 
-    },
+    }},
     "reviewCases": {
       "registered": "Registered"
+    },
+    "login":{
+      "title": "Login Page",
+      "submit": "Login",
+      "submitting": "LoggingIn"
     }
-  }
+  
 }

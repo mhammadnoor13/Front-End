@@ -7,5 +7,5 @@ export const AuthEndpoints = {
 export const CaseEndpoints = {
   submit:   '/cases',
   listAll:  '/cases',
-  review:   '/cases/review',
+  review:   '/consultants/assigned-cases',
 };

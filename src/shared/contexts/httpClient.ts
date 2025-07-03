@@ -2,6 +2,9 @@ import axios, { type AxiosInstance } from 'axios';
 
 export interface HttpClient {
   post<T>(url: string, data: unknown): Promise<T>;
+  get<T>(url: string, params?: Record<string, unknown>): Promise<T>;
+  setAuthToken(token: string | null): void;
+
 }
 
 export class AxiosClient implements HttpClient {
@@ -14,6 +17,19 @@ export class AxiosClient implements HttpClient {
   async post<T>(url: string, data: unknown) {
     const resp = await this.instance.post<T>(url, data);
     return resp.data;
+  }
+  
+  async get<T>(url: string, params?: Record<string, unknown>): Promise<T> {
+    const resp = await this.instance.get<T>(url, { params });
+    return resp.data;
+  }
+  setAuthToken(token: string | null): void {
+    if(token){
+      this.instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }
+    else{
+      delete this.instance.defaults.headers.common['Authorization'];
+    }
   }
 }
 

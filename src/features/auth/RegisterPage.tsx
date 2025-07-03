@@ -2,7 +2,7 @@
 import { FormEvent, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useRegister } from './hooks/useRegister'
-import { SPECIALTY_KEYS, SpecialtyKey } from '../../shared/utils/specialties'
+import { SPECIALTY_KEYS } from '../../shared/utils/specialties'
 import styles from './RegisterPage.module.css'
 import { FormState, RegisterPayload } from './types'
 

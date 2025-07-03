@@ -1,0 +1,40 @@
+/* src/features/cases/review-cases/components/CaseCard.module.css */
+
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  /* Accent stripe on the left to draw the eye */
+  border-left: 4px solid #4F46E5; /* Indigo-600 from Tailwind’s palette :contentReference[oaicite:0]{index=0} */
+  padding: 1.5rem;
+  /* Subtle default shadow */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* Animate hover state */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  /* Lift up slightly on hover */
+  transform: translateY(-4px);
+  /* Deeper shadow on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.id {
+  font-size: 0.85rem;
+  color: #6B7280; /* Gray-500 from Tailwind palette */
+  margin-bottom: 0.5rem;
+  word-break: break-all;
+}
+
+.description {
+  font-size: 1rem;
+  color: #111827; /* Gray-900 for strong contrast */
+  line-height: 1.4;
+}
+
+/* Optional: add a small hover underline effect on description text */
+.card:hover .description {
+  text-decoration: underline;
+}

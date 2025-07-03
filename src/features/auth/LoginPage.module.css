@@ -1,0 +1,93 @@
+/* src/features/auth/LoginPage.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
+  background: var(--color-gray-50);
+}
+
+.form {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: var(--color-gray-900);
+  text-align: center;
+}
+
+.label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--color-gray-700);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--color-gray-900);
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-indigo-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.submit {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: var(--color-indigo-600);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.submit:disabled {
+  background: var(--color-gray-400);
+  cursor: not-allowed;
+}
+
+.submit:not(:disabled):hover {
+  background: var(--color-indigo-700);
+  transform: translateY(-1px);
+}
+
+.error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: var(--color-red-100);
+  color: var(--color-red-700);
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.success {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--color-green-100);
+  color: var(--color-green-700);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  text-align: center;
+}
