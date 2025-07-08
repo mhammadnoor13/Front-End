@@ -13,8 +13,8 @@ export default function AppRoutesConfig() {
     <Routes>
       <Route element={<GuestLayout />}>
         <Route index element={<HomePage />} />
-        { <Route path="login" element={<LoginPage />} />}
-        { <Route path = {AppRoutes.register} element={<RegisterPage />} /> }
+        { <Route path={AppRoutes.LOGIN} element={<LoginPage />} />}
+        { <Route path = {AppRoutes.REGISTER} element={<RegisterPage />} /> }
         <Route 
           path={AppRoutes.REVIEW_CASES}
           element = {

@@ -15,7 +15,10 @@
   "nav": {
     "home": "Home",
     "login": "Login",
-    "register": "Register"
+    "logout": "Logout",
+    "register": "Register",
+    "reviewCases":"Review Cases"
+
   },
   "specialties": {
     "Legal":     "Legal",
@@ -55,7 +58,9 @@
     "login":{
       "title": "Login Page",
       "submit": "Login",
-      "submitting": "LoggingIn"
+      "submitting": "LoggingIn",
+      "success":"Logged in successfully!"
+
     }
   
 }

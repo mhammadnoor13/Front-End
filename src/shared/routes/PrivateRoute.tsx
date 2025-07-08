@@ -15,7 +15,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   if (!isAuthenticated) {
     return (
       <Navigate
-        to={AppRoutes.register}
+        to={AppRoutes.REGISTER}
         state={{ from: location }}
         replace
       />

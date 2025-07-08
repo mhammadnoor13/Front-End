@@ -1,6 +1,6 @@
 export const AppRoutes = {
-  home:          '/',
-  register:      '/register',
-  login:         '/login',
+  HOME:          '/',
+  REGISTER:      '/register',
+  LOGIN:         '/login',
   REVIEW_CASES:   '/review-cases',
 };
