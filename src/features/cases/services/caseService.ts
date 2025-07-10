@@ -1,7 +1,7 @@
 import { CaseEndpoints } from "../../../shared/api/endpoints";
 import { HttpClient } from "../../../shared/contexts/httpClient";
 import { SpecialtyKey } from "../../../shared/utils/specialties";
-import { CaseToReviewResponse } from "../types/Case";
+import { CaseDetail, CaseToReviewResponse } from "../types/Case";
 
 export interface CaseInput {
   email: string;
@@ -22,4 +22,11 @@ export async function getAssignedCases(
 ): Promise<CaseToReviewResponse[]> {
 
   return httpClient.get<CaseToReviewResponse[]>(CaseEndpoints.review);
+}
+
+export async function getCaseDetail(
+  httpClient:HttpClient,
+  caseId: string
+): Promise<CaseDetail> {
+  return httpClient.get<CaseDetail>(`${CaseEndpoints.review}/${caseId}`);
 }

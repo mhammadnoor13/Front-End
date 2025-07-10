@@ -1,4 +1,3 @@
-// src/features/cases/review-cases/ReviewCasesPage.tsx
 import { useEffect, useState } from 'react';
 import { useHttpClient } from '../../../shared/contexts/HttpClientContext';
 import { getAssignedCases } from '../../cases/services/caseService';

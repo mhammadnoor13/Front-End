@@ -6,6 +6,7 @@ import { AppRoutes } from './routes';
 import { PrivateRoute } from './PrivateRoute';
 import ReviewCasesPage from '../../features/cases/review-cases/ReviewCasesPage';
 import LoginPage from '../../features/auth/LoginPage';
+import ReviewCasePage from '../../features/cases/review-cases/ReviewCasePage';
 // import LoginPage from '../features/home/LoginPage';       // stub for future
 
 export default function AppRoutesConfig() {
@@ -22,6 +23,7 @@ export default function AppRoutesConfig() {
               <ReviewCasesPage />
             </PrivateRoute>
           }/>
+        <Route path="/review-cases/:id" element={<ReviewCasePage />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
