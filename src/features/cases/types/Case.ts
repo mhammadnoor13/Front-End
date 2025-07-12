@@ -2,6 +2,8 @@ export interface CaseToReviewResponse{
     id:string;
     title:string;
     description: string;
+    status:string;
+    createdAt: string;
 }
 
 export interface Suggestion {
