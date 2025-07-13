@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/index.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "../src/features/cases/review-cases/components",
+    "utils": "../src/features/cases/review-cases/lib/utils",
+    "ui": "../src/features/cases/review-cases/components/ui",
+    "lib": "../src/features/cases/review-cases/lib",
+    "hooks": "../src/features/cases/review-cases/hooks"
+  }
+}
