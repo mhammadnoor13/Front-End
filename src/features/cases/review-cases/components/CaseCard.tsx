@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Clock, Eye } from "lucide-react";
-import { Card, CardContent, CardHeader } from "./ui/card";
-import { Button } from "./ui/button";
+import { Card, CardContent, CardHeader } from "../components/ui/card";
+import { Button } from "../components/ui/button";
 import { Case } from "../../types/Case";
 
 interface CaseCardProps {
@@ -93,7 +93,7 @@ const CaseCard = ({ case: caseData }: CaseCardProps) => {
           <Button
             variant="outline"
             size="sm"
-            onClick={() => navigate(`/case/${caseData.id}`)}
+            onClick={() => navigate(`/review-cases/${caseData.id}`)}
             className="bg-primary text-primary-foreground hover:bg-primary/90 border-primary/20 shadow-sm"
           >
             <Eye className="w-4 h-4 mr-1" />

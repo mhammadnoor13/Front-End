@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { ArrowLeft, Calendar, FileText, CheckCircle, Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
 import { Button } from "../components/ui/button";
+import { Label } from "../components/ui/label";
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group";
 import { Textarea } from "../components/ui/textarea";
 import { Badge } from "../components/ui/badge";
@@ -18,11 +19,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../components/ui/alert-dialog";
-import { CaseDetail } from "../../types/Case";
 import { useToast } from "../hooks/use-toast";
-import { Label } from "../components/ui/label";
+import { CaseDetail } from "../../types/Case";
 
-const CaseReview = () => {
+const CaseReviewPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -129,7 +129,7 @@ const CaseReview = () => {
         description: "Your review has been successfully submitted.",
       });
 
-      navigate('/');
+      navigate('/review-cases');
     } catch (err) {
       toast({
         title: "Submission Failed",
@@ -158,7 +158,7 @@ const CaseReview = () => {
         <div className="text-center">
           <p className="text-destructive mb-2">Error loading case details</p>
           <p className="text-muted-foreground text-sm mb-4">{error}</p>
-          <Button onClick={() => navigate('/')}>
+          <Button onClick={() => navigate('/review-cases')}>
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Cases
           </Button>
@@ -175,7 +175,7 @@ const CaseReview = () => {
         <div className="mb-6">
           <Button
             variant="ghost"
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/review-cases')}
             className="mb-4 text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
@@ -314,4 +314,4 @@ const CaseReview = () => {
   );
 };
 
-export default CaseReview;
+export default CaseReviewPage;

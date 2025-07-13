@@ -1,6 +1,6 @@
 import CasesList from "../components/CasesList";
 
-const Index = () => {
+const CasesListPage = () => {
   return (
     <div className="min-h-screen bg-gradient-soft">
       <div className="container mx-auto px-4 py-8">
@@ -10,4 +10,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default CasesListPage;
